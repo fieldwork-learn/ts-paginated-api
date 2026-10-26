@@ -1,6 +1,21 @@
 # paginated-api
 
-Version 0.1.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
+Version 0.2.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
+
+## Before you start
+
+Make sure you can read these first. The starter code and tests use them from the first Step without explaining them:
+
+- Type annotations
+- The basic types
+- Object types and interfaces
+- Type aliases and function types
+- Union types
+- Reading generic types
+- The non-null assertion, `!`
+- How a TypeScript project runs
+
+If any of them are new to you, read [BEFORE-YOU-START.md](BEFORE-YOU-START.md) before Step 1. It explains each one briefly, links to where you can learn it, and ends with a short check that you're ready. The Steps teach everything else.
 
 ## Getting started
 
