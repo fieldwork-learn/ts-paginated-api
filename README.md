@@ -1,6 +1,6 @@
 # paginated-api
 
-Version 0.2.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
+Version 0.3.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
 
 ## Before you start
 
@@ -36,6 +36,10 @@ npm test
 - [Step 3: Find the next page](steps/03-find-the-next-page/README.md)
 - [Step 4: Read every page](steps/04-read-every-page/README.md)
 - [Step 5: Run it from the terminal](steps/05-run-it/README.md)
+- [Step 6: Describe a retry](steps/06-describe-a-retry/README.md)
+- [Step 7: Decide when to retry](steps/07-decide-when-to-retry/README.md)
+- [Step 8: Retry a request](steps/08-retry-a-request/README.md)
+- [Step 9: Retry from the CLI](steps/09-retry-from-the-cli/README.md)
 
 ## Where things live
 
@@ -102,7 +106,35 @@ git branch -d step-1
 
 `git pull` brings in the merge, and `git branch -d` deletes your local copy of the merged branch. You're ready to start the next Step at 1.
 
-One pull request can cover several Steps. Once the workflow feels familiar, do two or three Steps on one branch before opening it.
+One pull request can cover several Steps. Once the workflow feels familiar, see "Several Steps in one pull request" below.
+
+## Workflow: faster, with gh
+
+Once the workflow by hand feels routine, the GitHub CLI can do the GitHub half of it from your terminal, so you don't need the browser. It's the same workflow: a branch, a pull request, the check, a merge. Here it is for a branch covering Steps 2 and 3:
+
+```sh
+git switch main
+git pull
+git switch -c steps-2-3
+# make the Steps pass, committing as you go
+git push -u origin steps-2-3
+gh pr create --fill
+gh pr checks --watch
+gh pr merge --merge --delete-branch
+git switch main
+git pull
+```
+
+- `gh pr create --fill` opens a pull request from your branch against `main`, using your commit messages for its title and description. Leave out `--fill` to be asked for them instead.
+- `gh pr checks --watch` shows the **Fieldwork Steps** check, and waits until it finishes. `gh pr view --web` opens the pull request in your browser, where the check's summary shows which Steps it passes.
+- `gh pr merge --merge --delete-branch` merges it, just as **Merge pull request** does, and deletes the branch on GitHub and on your machine. Run it once the check has passed: `main`'s ruleset won't let it merge before.
+- `git switch main` and `git pull` bring the merge into your own `main`, as before.
+
+### Several Steps in one pull request
+
+A pull request can carry several Steps. Name the branch for the work, not for one Step, make two or three Steps pass, committing after each, and then open the pull request. The check's summary lists every Step it passes, and they all become Completed Steps when it merges.
+
+The cost is review. On a team, a small pull request is quick to review well and a big one isn't, so keep each one to work that belongs together, such as the Steps that build one feature.
 
 ## Updates
 
