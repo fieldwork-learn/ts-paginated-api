@@ -1,6 +1,6 @@
 # paginated-api
 
-Version 0.3.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
+Version 0.4.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
 
 ## Before you start
 
@@ -40,6 +40,9 @@ npm test
 - [Step 7: Decide when to retry](steps/07-decide-when-to-retry/README.md)
 - [Step 8: Retry a request](steps/08-retry-a-request/README.md)
 - [Step 9: Retry from the CLI](steps/09-retry-from-the-cli/README.md)
+- [Step 10: Cache a response on disk](steps/10-cache-a-response/README.md)
+- [Step 11: Answer from the cache](steps/11-answer-from-the-cache/README.md)
+- [Step 12: Cache from the CLI](steps/12-cache-from-the-cli/README.md)
 
 ## Where things live
 
