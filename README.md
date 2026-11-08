@@ -1,6 +1,6 @@
 # paginated-api
 
-Version 0.5.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
+Version 0.6.0. Work through the Steps below in order: each one is a small set of failing tests you make pass.
 
 ## Before you start
 
